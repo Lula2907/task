@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <section className="liniar1 h-[700px]">
         <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-          <div className="mr-auto place-self-center relative bottom-[90px] lg:col-span-7">
+          <div className="mr-auto place-self-center relative sm:bottom-[90px] buttom-[10px] lg:col-span-7">
             <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
               Unlock Your Tech Career with Our Expert-Led Courses!
             </h1>
