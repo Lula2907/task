@@ -1,13 +1,21 @@
 import { Navigate, Outlet } from "react-router-dom";
-import useAuth from "./Context/useAuth.js";
+import { useState, useEffect } from "react";
 
 const ProtectedRoute = () => {
-  const adminId = JSON.parse(localStorage.getItem("Admin")) || {};
-  // const { isAuthenticated, loading } = useAuth();
+  const [loading, setLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const adminData = localStorage.getItem("Admin");
+    if (adminData) {
+      setIsAuthenticated(true);
+    }
+    setLoading(false);
+  }, []);
 
   if (loading) return <p>Loading...</p>;
 
-  return adminId !== null ? <Outlet /> : <Navigate to="/adminlogin" />;
+  return isAuthenticated ? <Outlet /> : <Navigate to="/adminlogin" />;
 };
 
 export default ProtectedRoute;
