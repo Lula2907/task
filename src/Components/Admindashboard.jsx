@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Assignform from "./Assignform";
+import cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Admindashboard = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const baseUrl = "https://task-backend-2-eq1x.onrender.com";
 
@@ -12,9 +15,11 @@ const Admindashboard = () => {
     // });
     // const data = await res.json();
     // console.log(data);
+    cookies.remove("jwt");
 
     localStorage.removeItem("Admin");
-    window.location.href = "/";
+
+    navigate("/");
   };
 
   const handelopen = () => {
