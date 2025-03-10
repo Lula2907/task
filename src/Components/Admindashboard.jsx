@@ -6,12 +6,12 @@ const Admindashboard = () => {
   const baseUrl = "https://task-backend-2-eq1x.onrender.com";
 
   const handleLogout = async () => {
-    const res = await fetch(`${baseUrl}/admin/logout`, {
-      method: "POST"
-      // credentials: "include"
-    });
-    const data = await res.json();
-    console.log(data);
+    // const res = await fetch(`${baseUrl}/admin/logout`, {
+    //   method: "POST"
+    //   // credentials: "include"
+    // });
+    // const data = await res.json();
+    // console.log(data);
 
     localStorage.removeItem("Admin");
     window.location.href = "/";
