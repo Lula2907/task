@@ -12,7 +12,6 @@ const Userdashboard = () => {
         `${baseUrl}/user/assignments/${userId[0]._id}`
       );
       const data = await response.json();
-      console.log(13, data);
 
       if (response.ok) {
         setAssignments(data);

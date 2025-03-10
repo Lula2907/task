@@ -16,6 +16,7 @@ import Home from "./Components/Home.jsx";
 import Usersignup from "./Components/Usersignup.jsx";
 import Userlogin from "./Components/Userlogin.jsx";
 import Userdashboard from "./Components/Userdashboard.jsx";
+import ProtectedRoute from "./Components/ProtectedRoute.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +25,8 @@ const router = createBrowserRouter(
       <Route path="/adminlogin" element={<Login />} />
       <Route path="/usersignup" element={<Usersignup />} />
       <Route path="/userlogin" element={<Userlogin />} />
+      <Route element={<ProtectedRoute />} />
+
       <Route path="/dashboard" element={<Admindashboard></Admindashboard>} />
       <Route path="/userdashboard" element={<Userdashboard></Userdashboard>} />
     </Route>
