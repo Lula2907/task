@@ -61,9 +61,6 @@ const Assignform = () => {
       setCourse("");
       setUser("");
       setTopic("");
-      setTimeout(() => {
-        window.location.reload();
-      }, 3000);
     }
   };
 
@@ -102,6 +99,7 @@ const Assignform = () => {
                     Pick Goals
                   </label>
                   <select
+                    value={goal}
                     required
                     onChange={(e) => {
                       setGoal(e.target.value);
@@ -134,6 +132,7 @@ const Assignform = () => {
                     Pick Courses
                   </label>
                   <select
+                    value={course}
                     required
                     onChange={(e) => {
                       setCourse(e.target.value);
@@ -164,6 +163,7 @@ const Assignform = () => {
                     Pick Topics
                   </label>
                   <select
+                    value={topic}
                     required
                     onChange={(e) => {
                       setTopic(e.target.value);
@@ -190,6 +190,7 @@ const Assignform = () => {
                     Pick User
                   </label>
                   <select
+                    value={user}
                     required
                     onChange={(e) => {
                       setUser(e.target.value);
