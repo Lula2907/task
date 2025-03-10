@@ -5,7 +5,7 @@ import React from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-const base_usel = "http://localhost:5000";
+const base_usel = "https://task-backend-2-eq1x.onrender.com";
 
 export const useAuthstore = create((set) => ({
   isLoggingIn: false,

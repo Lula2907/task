@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 function Usersignup() {
-  const baseUrl = "http://localhost:5000";
+  const baseUrl = "https://task-backend-2-eq1x.onrender.com";
   const [load, setLoad] = useState(false);
   const navigate = useNavigate();
   const [email, setEmail] = useState("");

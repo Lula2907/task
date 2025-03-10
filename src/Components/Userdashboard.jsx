@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 const Userdashboard = () => {
-  const baseUrl = "http://localhost:5000";
+  const baseUrl = "https://task-backend-2-eq1x.onrender.com";
   const [assignments, setAssignments] = useState([]);
   const userId = JSON.parse(localStorage.getItem("User")) || {};
 
