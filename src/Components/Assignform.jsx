@@ -30,6 +30,7 @@ const Assignform = () => {
         userId: user,
         assignedBy: adminId.adminemail
       };
+      console.log(33, newTask);
 
       const request = {
         method: "POST",
@@ -39,7 +40,7 @@ const Assignform = () => {
 
       const responce = await fetch(`${baseUrl}/admin/assign`, request);
       const data = await responce.json();
-
+      console.log(25, data);
       if (responce.ok) {
         Swal.fire({
           title: "Good job!",
@@ -72,6 +73,7 @@ const Assignform = () => {
 
     setAllUser(data);
   };
+  console.log(allUser);
 
   useEffect(() => {
     getallUsers();
