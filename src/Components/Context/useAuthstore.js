@@ -9,6 +9,7 @@ const base_usel = "https://task-backend-2-eq1x.onrender.com";
 
 export const useAuthstore = create((set) => ({
   isLoggingIn: false,
+  isAuthenticated: false,
 
   login: async (admin, navigate) => {
     set({ isLoggingIn: true });
@@ -31,6 +32,25 @@ export const useAuthstore = create((set) => ({
       navigate("/dashboard");
     } else {
       toast.error("login failed invalid credentials");
+    }
+  },
+
+  checkAuth: async () => {
+    const response = await fetch(`${base_usel}/admin/checkauth`, {
+      credentials: "include", // ✅ Ensures cookies & tokens are sent
+      method: "GET", // Make sure this matches your backend's method
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+
+    const data = await response.json();
+    console.log(48, data);
+
+    if (response.ok) {
+      set({ isAuthenticated: true });
+    } else {
+      set({ isAuthenticated: false });
     }
   }
 }));

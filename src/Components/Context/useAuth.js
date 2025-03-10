@@ -11,9 +11,7 @@ const useAuth = () => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const response = await fetch(`${baseUrl}/admin/checkauth`, {
-          credentials: "include"
-        });
+        const response = await fetch(`${baseUrl}/admin/checkauth`);
 
         if (response.ok) {
           const data = await response.json();
@@ -25,7 +23,6 @@ const useAuth = () => {
         setAuth({ isAuthenticated: false, user: null, loading: false });
       }
     };
-    console.log(28, user);
 
     checkAuth();
   }, []);
