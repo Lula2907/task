@@ -17,6 +17,7 @@ export const useAuthstore = create((set) => ({
     const request = {
       method: "POST",
       headers: { "content-Type": "application/json" },
+      credentials: "include",
       body: JSON.stringify(admin)
     };
 
