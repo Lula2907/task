@@ -75,9 +75,9 @@ function Userlogin() {
         </svg>
       </div>
 
-      <div className="flex justify-center items-center h-screen overflow-hidden">
+      <div className="flex justify-center items-center h-screen overflow-hidden sm:top-0 top-[-90px] relative">
         <div className="xl:w-[700px] px-10 h-[610px] pt-[150px] rounded-3xl xl:shadow-xl z-50">
-          <h1 className="text-center text-3xl font-bold mt-2 mb-2 z-30 relative top-[20px] left-[100px]">
+          <h1 className="text-center text-3xl font-bold mt-2 mb-2 z-30 relative top-[20px] left-0 sm:left-[100px]">
             Log in
           </h1>
 
