@@ -38,8 +38,8 @@ export const useAuthstore = create((set) => ({
 
   checkAuth: async () => {
     const response = await fetch(`${base_usel}/admin/checkauth`, {
-      credentials: "include", // ✅ Ensures cookies & tokens are sent
-      method: "GET", // Make sure this matches your backend's method
+      credentials: "include",
+      method: "GET",
       headers: {
         "Content-Type": "application/json"
       }

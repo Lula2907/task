@@ -1,4 +1,5 @@
-// import { useState, useEffect } from "react";
+// import { useState, useEffect, useCallback } from "react";
+// import cookies from "js-cookie";
 
 // const useAuth = () => {
 //   const baseUrl = "https://task-backend-2-eq1x.onrender.com";
@@ -8,26 +9,43 @@
 //     loading: true
 //   });
 
-//   useEffect(() => {
-//     const checkAuth = async () => {
-//       try {
-//         const response = await fetch(`${baseUrl}/admin/checkauth`);
+//   // Define checkAuth outside useEffect so it can be returned
+//   const checkAuth = useCallback(async () => {
+//     try {
+//       const token = cookies.get("jwt"); // ✅ Get token from cookies
+//       console.log(document.cookie);
 
-//         if (response.ok) {
-//           const data = await response.json();
-//           setAuth({ isAuthenticated: true, user: data, loading: false });
-//         } else {
-//           setAuth({ isAuthenticated: false, user: null, loading: false });
+//       if (!token) {
+//         setAuth({ isAuthenticated: false, user: null, loading: false });
+//         return;
+//       }
+
+//       const response = await fetch(`${baseUrl}/admin/checkauth`, {
+//         credentials: "include", // ✅ Include credentials
+//         method: "GET",
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization: `Bearer ${token}` // ✅ Correct token format
 //         }
-//       } catch (error) {
+//       });
+
+//       if (response.ok) {
+//         const data = await response.json();
+//         setAuth({ isAuthenticated: true, user: data, loading: false });
+//       } else {
 //         setAuth({ isAuthenticated: false, user: null, loading: false });
 //       }
-//     };
-
-//     checkAuth();
+//     } catch (error) {
+//       console.error("Auth check failed:", error);
+//       setAuth({ isAuthenticated: false, user: null, loading: false });
+//     }
 //   }, []);
 
-//   return auth;
+//   useEffect(() => {
+//     checkAuth(); // ✅ Automatically check authentication on mount
+//   }, [checkAuth]);
+
+//   return [auth, checkAuth]; // ✅ Return auth state & checkAuth function
 // };
 
 // export default useAuth;

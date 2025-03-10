@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthstore } from "./Context/useAuthstore";
 import { Link } from "react-router-dom";
-import Footer from "./Footer";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const navigate = useNavigate();
