@@ -14,7 +14,7 @@ const Admindashboard = () => {
     console.log(data);
 
     localStorage.removeItem("Admin");
-    window.location.href = "/adminlogin";
+    window.location.href = "/";
   };
 
   const handelopen = () => {
