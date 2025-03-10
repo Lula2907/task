@@ -18,7 +18,7 @@ const Assignform = () => {
       if (!goal || !course || !topic || !user) {
         return Swal.fire({
           title: "Bad news",
-          text: "Fildes can't be empty",
+          text: "fields can't be empty",
 
           icon: "error"
         });
