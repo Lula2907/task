@@ -2,11 +2,12 @@ import { Navigate, Outlet } from "react-router-dom";
 import useAuth from "./Context/useAuth.js";
 
 const ProtectedRoute = () => {
-  const { isAuthenticated, loading } = useAuth();
+  const adminId = JSON.parse(localStorage.getItem("Admin")) || {};
+  // const { isAuthenticated, loading } = useAuth();
 
   if (loading) return <p>Loading...</p>;
 
-  return isAuthenticated ? <Outlet /> : <Navigate to="/adminlogin" />;
+  return adminId !== null ? <Outlet /> : <Navigate to="/adminlogin" />;
 };
 
 export default ProtectedRoute;

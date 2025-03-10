@@ -29,7 +29,7 @@ export const useAuthstore = create((set) => ({
     if (response.ok) {
       toast.success("logged in successfull");
       localStorage.setItem("Admin", JSON.stringify(data));
-      navigate("/dashboard");
+      // navigate("/dashboard");
     } else {
       toast.error("login failed invalid credentials");
     }
@@ -47,7 +47,7 @@ export const useAuthstore = create((set) => ({
     const data = await response.json();
     console.log(48, data);
 
-    if (response.ok) {
+    if (response.status == 200) {
       set({ isAuthenticated: true });
     } else {
       set({ isAuthenticated: false });
