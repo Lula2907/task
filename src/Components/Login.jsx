@@ -42,9 +42,9 @@ const Login = () => {
         </svg>
       </div>
 
-      <div className="flex justify-center items-center h-screen  overflow-hidden">
+      <div className="flex justify-center items-center h-screen sm:top-[2px]  top-[-30px] relative overflow-hidden">
         <div className="xl:w-[700px] w-full h-[600px] px-10 sm:h-[450px] pt-[90px] rounded-3xl xl:shadow-xl z-10">
-          <h1 className="text-center text-3xl font-bold mt-2 mb-2 z-30 relative top-[20px] left-[100px]">
+          <h1 className=" text-center text-3xl font-bold mt-2 mb-2 z-30 relative left-0 sm:left-[100px]">
             Admin Login
           </h1>
 
