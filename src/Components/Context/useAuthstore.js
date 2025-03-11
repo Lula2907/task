@@ -16,7 +16,7 @@ export const useAuthstore = create((set) => ({
 
     const request = {
       method: "POST",
-      headers: { "content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" },
       credentials: "include",
       body: JSON.stringify(admin)
     };
@@ -24,12 +24,12 @@ export const useAuthstore = create((set) => ({
     const response = await fetch(`${base_usel}/admin/login`, request);
     const data = await response.json();
     set({ isLoggingIn: false });
-
-    console.log(26, data);
+    console.log("JWT Token:", data.token, data);
 
     if (response.ok) {
       toast.success("logged in successfull");
       localStorage.setItem("Admin", JSON.stringify(data));
+      localStorage.setItem("Token", data.token);
       navigate("/dashboard");
     } else {
       toast.error("login failed invalid credentials");
@@ -37,20 +37,18 @@ export const useAuthstore = create((set) => ({
   },
 
   checkAuth: async () => {
-    const response = await fetch(`${base_usel}/admin/checkauth`, {
-      credentials: "include",
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    });
+    try {
+      const response = await fetch(`${base_usel}/admin/checkauth`, {
+        credentials: "include",
+        method: "GET",
+        headers: { "Content-Type": "application/json" }
+      });
 
-    const data = await response.json();
-    console.log(48, data);
+      if (!response.ok) throw new Error("Unauthorized");
 
-    if (response.status == 200) {
       set({ isAuthenticated: true });
-    } else {
+    } catch (error) {
+      console.error("Auth check failed:", error);
       set({ isAuthenticated: false });
     }
   }

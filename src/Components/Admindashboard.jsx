@@ -41,7 +41,7 @@ const Admindashboard = () => {
               <div
                 className="relative left-[95px]"
                 onClick={() => {
-                  handelopen();
+                  handelopen(), checkAuth();
                 }}
               >
                 <svg

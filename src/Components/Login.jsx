@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, React } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthstore } from "./Context/useAuthstore";
@@ -6,12 +6,21 @@ import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
 const Login = () => {
+  const base_usel = "https://task-backend-2-eq1x.onrender.com";
   const navigate = useNavigate();
   const { login, isLoggingIn } = useAuthstore();
   const [adminemail, setAdminemail] = useState("");
   const [adminpass, setAdminpass] = useState("");
 
+  // const { checkAuth, isAuthenticated } = useAuthstore();
+  // useEffect(async () => {
+  //   await checkAuth();
+  // }, [isAuthenticated]);
+
   const handelLogin = async (e) => {
+    // await checkAuth();
+    // console.log("after log a", isAuthenticated);
+
     e.preventDefault();
     try {
       const admin = {

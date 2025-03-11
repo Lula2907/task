@@ -7,6 +7,7 @@ const ProtectedRoute = () => {
 
   useEffect(() => {
     const adminData = localStorage.getItem("Admin");
+
     if (adminData) {
       setIsAuthenticated(true);
     }
