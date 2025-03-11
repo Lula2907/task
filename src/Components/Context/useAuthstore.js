@@ -1,6 +1,7 @@
 import { createContext } from "react";
 import { create } from "zustand";
 import React from "react";
+import cookies from "js-cookie";
 
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -25,6 +26,7 @@ export const useAuthstore = create((set) => ({
     const data = await response.json();
     set({ isLoggingIn: false });
     console.log("JWT Token:", data.token, data);
+    cookies.set("jwt", data.token);
 
     if (response.ok) {
       toast.success("logged in successfull");
