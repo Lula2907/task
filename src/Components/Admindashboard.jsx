@@ -8,6 +8,11 @@ const Admindashboard = () => {
   const [open, setOpen] = useState(false);
   const baseUrl = "https://task-backend-2-eq1x.onrender.com";
 
+  // const getCookis = () => {
+  //  const token=  JSON.stringify(cookies.get("jwt"));
+  //   alert(``)
+  // };
+
   const handleLogout = async () => {
     const res = await fetch(`${baseUrl}/admin/logout`, {
       method: "POST",
@@ -41,7 +46,7 @@ const Admindashboard = () => {
               <div
                 className="relative left-[95px]"
                 onClick={() => {
-                  handelopen(), checkAuth();
+                  handelopen();
                 }}
               >
                 <svg
